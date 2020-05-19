@@ -1,5 +1,9 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
+
+import {addItemAction} from '../store/todolist';
 
 class TodoInput extends React.Component {
   state = {
@@ -12,7 +16,9 @@ class TodoInput extends React.Component {
 
   handleClick = () => {
     const {value} = this.state;
-    console.log('value', value);
+    const {addItem} = this.props;
+    addItem(value);
+    this.setState({value: ''});
   }
 
   render() {
@@ -27,4 +33,13 @@ class TodoInput extends React.Component {
 
 }
 
-export default TodoInput;
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+
+    addItem: addItemAction
+
+  }, dispatch);
+}
+
+
+export default connect(null, mapDispatchToProps)(TodoInput);

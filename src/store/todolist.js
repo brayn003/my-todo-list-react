@@ -17,7 +17,7 @@ export default function reducer (state = initialState, action) {
   }
 
   if(type === DELETE_ITEM) {
-    const newState = state;
+    const newState = [...state];
     newState.splice(payload, 1);
     return newState;
   }

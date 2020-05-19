@@ -7,10 +7,12 @@ import store from './store'
 
 import './index.css';
 import App from './components/App';
+import ToDoInputContainer from './components/TodoInputContainer';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+      <ToDoInputContainer />
       <App />
     </Provider>
   </React.StrictMode>,
