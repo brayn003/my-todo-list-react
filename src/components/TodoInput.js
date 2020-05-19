@@ -12,11 +12,7 @@ class TodoInput extends React.Component {
 
   handleClick = () => {
     const {value} = this.state;
-    const {onChange} = this.props;
-    if(value !== '') {
-      onChange(value);
-      this.setState({value: ''});
-    }
+    console.log('value', value);
   }
 
   render() {
